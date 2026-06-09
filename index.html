@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SKJ Community — Des offres premium, sans engagement. Une expérience digitale immersive." />
-  <title>SKJ Community — Sans engagement, sans limite</title>
+  <meta name="description" content="SKJ Community — Studio digital pour artisans, commerçants et indépendants. Des sites vitrines à prix fixe, sans abonnement, qui vous appartiennent à 100%." />
+  <title>SKJ Community — Des offres premium. Zéro engagement.</title>
 
-  <!-- Google Fonts : Inter (proche du SF Pro d'Apple) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -16,16 +15,18 @@
      SKJ Community — Landing premium cosmique
      ========================================================= */
   :root {
-    --bg: #060414;
-    --bg-soft: #0d0a26;
-    --text: #f7f4ff;
-    --text-dim: #b3aacc;
-    --accent: #2ea7ff;
-    --accent-2: #6a3cff;
-    --accent-3: #ff7a18;
-    --grad: linear-gradient(120deg, #2ea7ff 0%, #6a3cff 38%, #ff7a18 78%, #ff3d3d 100%);
-    --border: rgba(255, 255, 255, 0.1);
-    --radius: 20px;
+    --bg: #030405;
+    --bg-soft: #090b0f;
+    --text: #f6f7f8;
+    --text-dim: #a4a9b0;
+    --gold: #91d8ff;
+    --accent: #91d8ff;
+    --accent-2: #78bcff;
+    --accent-3: #91d8ff;
+    --grad: linear-gradient(120deg, #91d8ff 0%, #c9e8ff 55%, #f6f7f8 100%);
+    --border: rgba(255, 255, 255, 0.14);
+    --card: rgba(255, 255, 255, 0.05);
+    --radius: 16px;
     --maxw: 1180px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,483 +35,218 @@
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
 
   /* ---------- Fond néon animé ---------- */
-  .bg-neon {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    background:
-      radial-gradient(60% 50% at 50% 40%, rgba(106, 60, 255, 0.16), transparent 70%),
-      #060414;
-  }
-  .bg-neon::before,
-  .bg-neon::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.55;
-    mix-blend-mode: screen;
-  }
-  .bg-neon::before {
-    width: 68vw; height: 68vw;
-    top: -12%; left: -8%;
-    background: radial-gradient(circle, #2ea7ff 0%, #6a3cff 40%, transparent 68%);
-    animation: blobA 18s ease-in-out infinite;
-  }
-  .bg-neon::after {
-    width: 64vw; height: 64vw;
-    bottom: -16%; right: -12%;
-    background: radial-gradient(circle, #ff7a18 0%, #ff3d3d 45%, transparent 70%);
-    animation: blobB 22s ease-in-out infinite;
-  }
-  .bg-neon i {
-    position: absolute;
-    width: 60vw; height: 60vw;
-    top: 25%; left: 28%;
-    border-radius: 50%;
-    background: radial-gradient(circle, #6a3cff 0%, transparent 62%);
-    filter: blur(100px);
-    opacity: 0.4;
-    mix-blend-mode: screen;
-    animation: blobC 26s ease-in-out infinite;
-  }
-  .bg-neon__vignette {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(120% 100% at 50% 35%, transparent 38%, rgba(6,4,20,0.88) 100%);
-  }
-  @keyframes blobA {
-    0%,100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(12vw, 8vh) scale(1.15); }
-  }
-  @keyframes blobB {
-    0%,100% { transform: translate(0,0) scale(1); }
-    50% { transform: translate(-10vw, -6vh) scale(1.1); }
-  }
-  @keyframes blobC {
-    0%,100% { transform: translate(0,0) scale(1); }
-    33% { transform: translate(-8vw, 6vh) scale(1.2); }
-    66% { transform: translate(6vw, -8vh) scale(0.9); }
-  }
+  .bg-neon { position: fixed; inset: 0; z-index: 0; overflow: hidden;
+    background: radial-gradient(circle at 50% 6%, rgba(120, 188, 255, 0.16), transparent 30rem), linear-gradient(180deg, #050608 0%, #030405 42%, #090b0f 100%); }
+  .bg-neon::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(180deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 74%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 74%, transparent); opacity: 0.22; }
+  .bg-neon i, .bg-neon__vignette { display: none; }
+  @keyframes blobA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(12vw, 8vh) scale(1.15); } }
+  @keyframes blobB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-10vw, -6vh) scale(1.1); } }
+  @keyframes blobC { 0%,100% { transform: translate(0,0) scale(1); } 33% { transform: translate(-8vw, 6vh) scale(1.2); } 66% { transform: translate(6vw, -8vh) scale(0.9); } }
 
-  /* ---------- Canvas WebGL ---------- */
-  #webgl {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
-  }
+  #webgl { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
   main, .nav, .footer { position: relative; z-index: 2; }
 
   /* ---------- Loader ---------- */
-  .loader {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
-  }
+  .loader { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; transition: opacity 0.8s ease, visibility 0.8s ease; }
   .loader.hidden { opacity: 0; visibility: hidden; }
-  .loader__img {
-    width: clamp(160px, 38vw, 240px);
-    height: auto;
-    border-radius: 18px;
-    box-shadow: 0 0 60px rgba(106, 60, 255, 0.45);
-    animation: hexPulse 2.4s ease-in-out infinite;
-  }
-  @keyframes hexPulse {
-    0%,100% { box-shadow: 0 0 40px rgba(46,167,255,0.4); transform: scale(1); }
-    50% { box-shadow: 0 0 70px rgba(255,122,24,0.55); transform: scale(1.03); }
-  }
-  .loader__bar {
-    width: 180px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .loader__bar span {
-    display: block;
-    height: 100%;
-    width: 0%;
-    background: var(--grad);
-    transition: width 0.3s ease;
-  }
+  .loader__img { width: clamp(160px, 38vw, 240px); height: auto; border-radius: 18px; box-shadow: 0 0 60px rgba(145, 216, 255, 0.3); animation: hexPulse 2.6s ease-in-out infinite; }
+  @keyframes hexPulse { 0%,100% { box-shadow: 0 0 40px rgba(120,188,255,0.25); transform: scale(1); } 50% { box-shadow: 0 0 70px rgba(145,216,255,0.4); transform: scale(1.03); } }
+  .loader__bar { width: 180px; height: 2px; background: rgba(255, 255, 255, 0.1); border-radius: 2px; overflow: hidden; }
+  .loader__bar span { display: block; height: 100%; width: 0%; background: var(--grad); transition: width 0.3s ease; }
 
   /* ---------- Navigation ---------- */
-  .nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px clamp(20px, 5vw, 48px);
-    background: rgba(5, 5, 7, 0);
-    backdrop-filter: blur(0px);
-    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease;
-  }
-  .nav.scrolled {
-    background: rgba(5, 5, 7, 0.6);
-    backdrop-filter: blur(18px) saturate(160%);
-    border-bottom: 1px solid var(--border);
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-  .nav__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 11px;
-    font-weight: 800;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
-  }
-  .nav__logo {
-    width: 38px;
-    height: 38px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 18px rgba(106, 60, 255, 0.35);
-  }
-  .nav__brand span {
-    font-weight: 400;
-    color: var(--text-dim);
-    margin-left: 4px;
-    font-size: 0.95rem;
-  }
-  .nav__links { display: flex; gap: 32px; }
-  .nav__links a {
-    font-size: 0.92rem;
-    color: var(--text-dim);
-    transition: color 0.25s ease;
-  }
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 18px clamp(20px, 5vw, 48px); transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease; }
+  .nav.scrolled { background: rgba(6, 4, 20, 0.6); backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--border); padding-top: 12px; padding-bottom: 12px; }
+  .nav__brand { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+  .nav__logo { width: 38px; height: 38px; object-fit: cover; border-radius: 10px; box-shadow: 0 0 18px rgba(106, 60, 255, 0.35); }
+  .nav__brand span { font-weight: 400; color: var(--text-dim); margin-left: 4px; font-size: 0.95rem; }
+  .nav__links { display: flex; gap: 30px; }
+  .nav__links a { font-size: 0.92rem; color: var(--text-dim); transition: color 0.25s ease; }
   .nav__links a:hover { color: var(--text); }
-  .nav__cta {
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 9px 20px;
-    border-radius: 999px;
-    background: var(--text);
-    color: #000;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-  }
-  .nav__cta:hover { transform: translateY(-2px); opacity: 0.9; }
+  .nav__cta { font-size: 0.9rem; font-weight: 600; padding: 9px 20px; border-radius: 999px; background: var(--grad); color: #07090c; transition: transform 0.25s ease, opacity 0.25s ease; box-shadow: 0 6px 22px rgba(145, 216, 255, 0.25); }
+  .nav__cta:hover { transform: translateY(-2px); opacity: 0.92; }
 
   /* ---------- Sections ---------- */
-  .section {
-    padding: clamp(80px, 14vh, 160px) clamp(20px, 5vw, 48px);
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--accent);
-    margin-bottom: 18px;
-  }
-  .eyebrow.center, .center { text-align: center; }
-  .section__title {
-    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    text-align: center;
-    margin-bottom: 56px;
-  }
-  .grad {
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+  .section { padding: clamp(72px, 12vh, 150px) clamp(20px, 5vw, 48px); max-width: var(--maxw); margin: 0 auto; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.74rem; font-weight: 700; color: var(--accent); margin-bottom: 16px; }
+  .eyebrow.center { text-align: center; }
+  .section__title { font-size: clamp(1.7rem, 4.2vw, 3rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 18px; }
+  .section__title.center { text-align: center; }
+  .section__sub { font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--text-dim); max-width: 620px; margin-bottom: 48px; }
+  .section__sub.center { text-align: center; margin-left: auto; margin-right: auto; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
   /* ---------- Boutons ---------- */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
-    border-radius: 999px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease;
-  }
-  .btn--primary {
-    background: var(--grad);
-    color: #fff;
-    box-shadow: 0 8px 30px rgba(110, 139, 255, 0.35);
-  }
-  .btn--primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(177, 108, 255, 0.45); }
-  .btn--ghost {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: var(--border);
-    color: var(--text);
-  }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: transform 0.25s ease, box-shadow 0.3s ease, background 0.3s ease; }
+  .btn--primary { background: var(--grad); color: #07090c; box-shadow: 0 8px 30px rgba(145, 216, 255, 0.22); }
+  .btn--primary:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(145, 216, 255, 0.3); }
+  .btn--ghost { background: rgba(255, 255, 255, 0.05); border-color: var(--border); color: var(--text); }
   .btn--ghost:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
   .btn.full { width: 100%; }
 
   /* ---------- HERO ---------- */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: none;
-  }
-  .hero__inner { max-width: 820px; }
-  .hero__title {
-    font-size: clamp(2.6rem, 8vw, 5.8rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
-    margin-bottom: 26px;
-  }
-  .hero__sub {
-    font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-    color: var(--text-dim);
-    max-width: 560px;
-    margin: 0 auto 40px;
-  }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: none; }
+  .hero__inner { max-width: 880px; }
+  .hero__title { font-size: clamp(2.6rem, 8vw, 5.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin-bottom: 24px; }
+  .hero__sub { font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--text-dim); max-width: 600px; margin: 0 auto 36px; }
   .hero__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .hero__trust { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; margin-top: 40px; }
+  .hero__trust span { font-size: 0.82rem; color: var(--text-dim); display: inline-flex; align-items: center; gap: 7px; }
+  .hero__trust b { color: var(--text); font-weight: 600; }
+  .hero__trust .dot { color: var(--accent-3); }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 38px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-  .scroll-hint span {
-    width: 22px;
-    height: 36px;
-    border: 1.5px solid var(--text-dim);
-    border-radius: 12px;
-    position: relative;
-  }
-  .scroll-hint span::after {
-    content: "";
-    position: absolute;
-    top: 7px; left: 50%;
-    transform: translateX(-50%);
-    width: 3px; height: 7px;
-    border-radius: 2px;
-    background: var(--text);
-    animation: scrollWheel 1.6s infinite;
-  }
-  @keyframes scrollWheel {
-    0% { opacity: 0; transform: translate(-50%, 0); }
-    40% { opacity: 1; }
-    100% { opacity: 0; transform: translate(-50%, 12px); }
-  }
+  .scroll-hint { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); }
+  .scroll-hint span { width: 22px; height: 36px; border: 1.5px solid var(--text-dim); border-radius: 12px; position: relative; }
+  .scroll-hint span::after { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 3px; height: 7px; border-radius: 2px; background: var(--text); animation: scrollWheel 1.6s infinite; }
+  @keyframes scrollWheel { 0% { opacity: 0; transform: translate(-50%, 0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, 12px); } }
 
-  /* ---------- PRODUIT (pin + zoom progressif) ---------- */
-  .product {
-    max-width: none;
-    padding: 0;
-    height: 320vh;
-    position: relative;
-  }
-  .product__pin {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  .product__text {
-    position: absolute;
-    text-align: center;
-    max-width: 640px;
-    padding: 0 24px;
-    opacity: 0;
-  }
-  .product__text h2 {
-    font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    margin-bottom: 18px;
-  }
-  .product__text p {
-    font-size: clamp(1rem, 2.4vw, 1.3rem);
-    color: var(--text-dim);
-  }
+  /* ---------- PROMESSE (pin + zoom progressif) ---------- */
+  .promise { max-width: none; padding: 0; height: 320vh; position: relative; }
+  .promise__pin { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .promise__text { position: absolute; text-align: center; max-width: 680px; padding: 0 24px; opacity: 0; }
+  .promise__num { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.3em; color: var(--accent-3); margin-bottom: 14px; }
+  .promise__text h2 { font-size: clamp(2rem, 6vw, 3.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 18px; }
+  .promise__text p { font-size: clamp(1rem, 2.4vw, 1.25rem); color: var(--text-dim); }
 
-  /* ---------- FEATURES ---------- */
-  .features__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 22px;
-  }
-  .card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 34px 28px;
-    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(110, 139, 255, 0.4);
-    background: rgba(110, 139, 255, 0.06);
-  }
-  .card__icon {
-    font-size: 1.8rem;
-    width: 56px; height: 56px;
-    display: grid;
-    place-items: center;
-    border-radius: 14px;
-    background: var(--grad);
-    margin-bottom: 22px;
-  }
-  .card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+  /* ---------- Cartes génériques ---------- */
+  .grid { display: grid; gap: 22px; }
+  .cols-3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .cols-4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 26px; transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease; }
+  .card:hover { transform: translateY(-6px); border-color: rgba(110, 60, 255, 0.45); background: rgba(110, 60, 255, 0.06); }
+  .card .ico { font-size: 1.7rem; margin-bottom: 16px; }
+  .card h3 { font-size: 1.12rem; font-weight: 600; margin-bottom: 10px; }
   .card p { color: var(--text-dim); font-size: 0.95rem; }
+  .card--top { border-top: 3px solid transparent; border-image: var(--grad) 1; }
+
+  /* ---------- COMPARATIF ---------- */
+  .compare { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: 0.92rem; }
+  .compare th { padding: 16px 18px; text-align: left; font-weight: 600; font-size: 0.9rem; }
+  .compare th:first-child { background: rgba(255,255,255,0.04); width: 30%; color: var(--text-dim); }
+  .compare th.them { background: rgba(255,255,255,0.04); color: var(--text-dim); }
+  .compare th.us { background: var(--grad); color: #fff; }
+  .compare td { padding: 14px 18px; border-top: 1px solid var(--border); vertical-align: top; line-height: 1.5; color: var(--text-dim); }
+  .compare td:first-child { font-weight: 600; color: var(--text); background: rgba(255,255,255,0.02); }
+  .compare td.them { background: rgba(255, 61, 61, 0.05); }
+  .compare td.us { background: rgba(46, 167, 255, 0.06); color: var(--text); }
+  .compare .tag { font-size: 0.7rem; font-weight: 700; padding: 2px 9px; border-radius: 999px; margin-right: 6px; display: inline-block; }
+  .compare .tag-bad { background: rgba(255, 61, 61, 0.15); color: #ff8d8d; }
+  .compare .tag-ok { background: rgba(46, 167, 255, 0.15); color: #8fd0ff; }
+  .compare-wrap { overflow-x: auto; }
 
   /* ---------- OFFRES ---------- */
-  .offers__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    align-items: stretch;
-  }
-  .plan {
-    position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 38px 30px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.35s ease, border-color 0.35s ease;
-  }
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: stretch; }
+  .plan { position: relative; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; display: flex; flex-direction: column; transition: transform 0.35s ease, border-color 0.35s ease; }
   .plan:hover { transform: translateY(-6px); }
-  .plan--featured {
-    border-color: rgba(177, 108, 255, 0.5);
-    background: linear-gradient(180deg, rgba(110,139,255,0.1), rgba(177,108,255,0.04));
-    box-shadow: 0 20px 60px rgba(110, 139, 255, 0.18);
-  }
-  .plan__badge {
-    position: absolute;
-    top: -13px; left: 50%;
-    transform: translateX(-50%);
-    background: var(--grad);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 999px;
-  }
-  .plan__name { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
-  .plan__price {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 26px;
-  }
-  .plan__price span { font-size: 0.9rem; font-weight: 400; color: var(--text-dim); }
-  .plan__list { list-style: none; margin-bottom: 30px; flex: 1; }
-  .plan__list li {
-    padding: 11px 0 11px 28px;
-    position: relative;
-    color: var(--text-dim);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .plan__list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
-  }
+  .plan--featured { border-color: rgba(145, 216, 255, 0.5); background: linear-gradient(180deg, rgba(145,216,255,0.1), rgba(145,216,255,0.02)); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45); }
+  .plan__badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--grad); color: #07090c; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
+  .plan__price { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+  .plan__price small { font-size: 0.8rem; font-weight: 500; color: var(--text-dim); display: block; margin-bottom: 6px; }
+  .plan__priceSub { font-size: 0.78rem; color: var(--text-dim); margin-bottom: 18px; }
+  .plan__name { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+  .plan__desc { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 18px; }
+  .plan__list { list-style: none; margin-bottom: 26px; flex: 1; }
+  .plan__list li { padding: 9px 0 9px 26px; position: relative; color: var(--text-dim); border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .plan__list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .note { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-top: 26px; font-size: 0.92rem; color: var(--text-dim); }
+  .note b { color: var(--text); }
+
+  /* ---------- MÉTHODE (timeline) ---------- */
+  .steps { display: flex; flex-direction: column; gap: 16px; }
+  .step { display: flex; gap: 22px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 26px; transition: transform 0.3s ease, border-color 0.3s ease; }
+  .step:hover { transform: translateX(6px); border-color: rgba(110, 60, 255, 0.4); }
+  .step__num { font-size: 1.6rem; font-weight: 800; line-height: 1; flex-shrink: 0; width: 52px; text-align: center; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+  .step p { font-size: 0.92rem; color: var(--text-dim); }
+
+  /* ---------- PREUVES ---------- */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin-bottom: 40px; }
+  .metric { text-align: center; padding: 26px 16px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); }
+  .metric b { display: block; font-size: 2rem; font-weight: 800; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .metric span { font-size: 0.82rem; color: var(--text-dim); }
+  .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .quote { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 26px; }
+  .quote__mark { font-size: 2.4rem; line-height: 0.6; color: var(--accent-2); font-weight: 800; }
+  .quote p { font-size: 0.95rem; color: var(--text); margin: 12px 0 16px; line-height: 1.65; }
+  .quote h4 { font-size: 0.95rem; font-weight: 600; }
+  .quote span { font-size: 0.82rem; color: var(--text-dim); }
+
+  /* ---------- AUDIT ---------- */
+  .audit { background: linear-gradient(135deg, rgba(145,216,255,0.12), rgba(120,188,255,0.05)); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(32px, 5vw, 56px); display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .audit__text { flex: 1; min-width: 280px; }
+  .audit__text h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 14px; }
+  .audit__text p { color: var(--text-dim); margin-bottom: 16px; max-width: 520px; }
+  .audit__list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .audit__list li { font-size: 0.9rem; color: var(--text-dim); display: flex; gap: 9px; }
+  .audit__list li::before { content: "✓"; color: var(--accent); font-weight: 700; }
+  .audit__action { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .audit__note { font-size: 0.78rem; color: var(--text-dim); text-align: center; }
+
+  /* ---------- FAQ ---------- */
+  .faq { max-width: 820px; margin: 0 auto; }
+  .faq-item { border: 1px solid var(--border); border-radius: 14px; margin-bottom: 12px; overflow: hidden; background: var(--card); }
+  .faq-q { padding: 18px 22px; font-weight: 600; font-size: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; }
+  .faq-q::after { content: "+"; font-size: 1.4rem; font-weight: 300; color: var(--accent); flex-shrink: 0; transition: transform 0.3s ease; }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 22px; color: var(--text-dim); font-size: 0.95rem; line-height: 1.7; }
+  .faq-item.open .faq-a { max-height: 400px; padding: 0 22px 20px; }
 
   /* ---------- CONTACT ---------- */
-  .contact__inner {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .contact__sub { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 40px; }
-  .contact__form { display: flex; flex-direction: column; gap: 14px; text-align: left; }
-  .contact__form input,
-  .contact__form textarea {
-    width: 100%;
-    padding: 15px 18px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: inherit;
-    font-size: 0.98rem;
-    resize: vertical;
-    transition: border-color 0.25s ease, background 0.25s ease;
-  }
-  .contact__form input::placeholder,
-  .contact__form textarea::placeholder { color: var(--text-dim); }
-  .contact__form input:focus,
-  .contact__form textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    background: rgba(110, 139, 255, 0.06);
-  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 44px; align-items: start; }
+  .contact__list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+  .contact__list li { font-size: 0.95rem; color: var(--text-dim); display: flex; gap: 10px; }
+  .contact__list li::before { content: "→"; color: var(--accent); font-weight: 700; }
+  .form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
+  .form h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+  .form > p { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 6px; }
+  .field input, .field select, .field textarea { width: 100%; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.95rem; }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(179,170,204,0.5); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: rgba(46,167,255,0.06); }
+  .field select option { background: #0d0a26; }
+  .form-note { font-size: 0.78rem; color: var(--text-dim); text-align: center; margin-top: 12px; }
 
   /* ---------- FOOTER ---------- */
-  .footer {
-    text-align: center;
-    padding: 50px 20px;
-    color: var(--text-dim);
-    font-size: 0.88rem;
-    border-top: 1px solid var(--border);
-  }
+  .footer { border-top: 1px solid var(--border); margin-top: 40px; }
+  .footer__inner { max-width: var(--maxw); margin: 0 auto; padding: 56px clamp(20px, 5vw, 48px) 28px; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+  .footer__brand h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+  .footer__brand p { font-size: 0.9rem; color: var(--text-dim); max-width: 320px; }
+  .footer__brand .coord { margin-top: 16px; font-size: 0.86rem; line-height: 1.8; }
+  .footer__col h5 { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 14px; }
+  .footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .footer__col a { font-size: 0.9rem; color: var(--text-dim); transition: color 0.2s ease; }
+  .footer__col a:hover { color: var(--text); }
+  .footer__copy { max-width: var(--maxw); margin: 0 auto; padding: 20px clamp(20px, 5vw, 48px); border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 0.8rem; color: var(--text-dim); }
 
-  /* ---------- Reveal au scroll ---------- */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ---------- Responsive mobile ---------- */
-  @media (max-width: 768px) {
+  /* ---------- Responsive ---------- */
+  @media (max-width: 820px) {
     .nav__links { display: none; }
-    .product { height: 280vh; }
-    .hero__actions { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
+    .promise { height: 280vh; }
+    .hero__actions { flex-direction: column; width: 100%; max-width: 340px; margin: 0 auto; }
     .hero__actions .btn { width: 100%; }
-    .section__title { margin-bottom: 40px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer__inner { grid-template-columns: 1fr; gap: 28px; }
+    .audit { flex-direction: column; align-items: flex-start; }
+    .audit__action { align-self: stretch; }
   }
   @media (prefers-reduced-motion: reduce) {
     .reveal { transition: none; opacity: 1; transform: none; }
@@ -532,7 +268,7 @@
     <div class="bg-neon__vignette"></div>
   </div>
 
-  <!-- Canvas Three.js en fond fixe -->
+  <!-- Canvas Three.js -->
   <canvas id="webgl"></canvas>
 
   <!-- Navigation -->
@@ -542,11 +278,12 @@
       SKJ<span>Community</span>
     </a>
     <nav class="nav__links">
-      <a href="#produit">Concept</a>
-      <a href="#features">Avantages</a>
       <a href="#offres">Offres</a>
+      <a href="#methode">Méthode</a>
+      <a href="#avis">Avis</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a href="#contact" class="nav__cta">Démarrer</a>
+    <a href="#contact" class="nav__cta">Devis gratuit</a>
   </header>
 
   <main>
@@ -554,206 +291,494 @@
     <!-- HERO -->
     <section class="section hero" id="hero">
       <div class="hero__inner">
-        <p class="eyebrow reveal">SKJ Community</p>
+        <p class="eyebrow reveal">Studio digital · artisans, commerçants &amp; indépendants</p>
         <h1 class="hero__title reveal">
-          On se refait<br /><span class="grad">une santé !</span>
+          Des offres premium.<br /><span class="grad">Zéro engagement.</span>
         </h1>
         <p class="hero__sub reveal">
-          Rejoignez la communauté bien-être nouvelle génération.
-          Des offres premium, une énergie nouvelle — et zéro engagement.
+          On crée votre site vitrine professionnel à <strong>prix fixe annoncé d'avance</strong> —
+          sans abonnement imposé, sans contrat qui vous enferme. Votre site, vos accès, votre liberté.
         </p>
         <div class="hero__actions reveal">
-          <a href="#offres" class="btn btn--primary">Découvrir les offres</a>
-          <a href="#produit" class="btn btn--ghost">En savoir plus →</a>
+          <a href="#contact" class="btn btn--primary">Demander mon devis gratuit →</a>
+          <a href="#audit" class="btn btn--ghost">Recevoir mon audit offert</a>
+        </div>
+        <div class="hero__trust reveal">
+          <span><b class="dot">✓</b> <b>Prix fixe</b> avant signature</span>
+          <span><b class="dot">✓</b> <b>Propriétaire à 100%</b></span>
+          <span><b class="dot">✓</b> <b>Aucun abonnement</b> obligatoire</span>
+          <span><b class="dot">✓</b> Production <b>humaine</b>, assistée par IA</span>
         </div>
       </div>
-      <div class="scroll-hint reveal">
-        <span></span>Scrollez
+      <div class="scroll-hint reveal"><span></span>Scrollez</div>
+    </section>
+
+    <!-- PROBLÈME -->
+    <section class="section" id="probleme">
+      <p class="eyebrow reveal">Le vrai problème</p>
+      <h2 class="section__title reveal">Vous payez pour un site —<br />mais quelque chose ne va pas.</h2>
+      <p class="section__sub reveal">Beaucoup d'artisans et commerçants nous contactent avec la même sensation : ils paient pour quelque chose qui ne leur appartient pas vraiment.</p>
+      <div class="grid cols-3">
+        <article class="card card--top reveal">
+          <div class="ico">💸</div>
+          <h3>Vous payez chaque mois sans savoir pourquoi</h3>
+          <p>Un abonnement s'est installé. À chaque prélèvement, vous vous demandez si c'est justifié — et si vous pourriez partir demain sans tout perdre.</p>
+        </article>
+        <article class="card card--top reveal">
+          <div class="ico">🔒</div>
+          <h3>Votre site ne vous appartient pas vraiment</h3>
+          <p>Pas d'accès aux fichiers, un domaine géré par quelqu'un d'autre. Changer de prestataire ? Vous recommencez de zéro — et vous le savez.</p>
+        </article>
+        <article class="card card--top reveal">
+          <div class="ico">🤖</div>
+          <h3>Votre site ressemble à mille autres</h3>
+          <p>Un contenu générique, un design sorti d'un modèle standard. Rien qui ne reflète vraiment votre travail, votre style, votre métier.</p>
+        </article>
       </div>
     </section>
 
-    <!-- PRODUIT 3D (section épinglée avec zoom progressif) -->
-    <section class="section product" id="produit">
-      <div class="product__pin">
-        <div class="product__text product__text--1">
-          <h2>Conçu pour impressionner.</h2>
-          <p>Chaque détail compte. Animation fluide, profondeur, lumière.</p>
+    <!-- PROMESSE (section 3D épinglée, zoom progressif) -->
+    <section class="section promise" id="promesse">
+      <div class="promise__pin">
+        <div class="promise__text promise__text--1">
+          <div class="promise__num">01</div>
+          <h2>Prix fixe, sans surprise.</h2>
+          <p>Avant toute signature, vous connaissez le montant exact. Pas de paliers cachés, pas d'options qui s'ajoutent. Un devis clair, un tarif ferme.</p>
         </div>
-        <div class="product__text product__text--2">
-          <h2>Pensé pour durer.</h2>
-          <p>Une présence digitale qui reste gravée dans les mémoires.</p>
+        <div class="promise__text promise__text--2">
+          <div class="promise__num">02</div>
+          <h2>Un site qui vous appartient.</h2>
+          <p>Nom de domaine, fichiers, accès, contenu — tout est à vous dès le premier jour. Si demain vous partez, votre site part avec vous.</p>
         </div>
-        <div class="product__text product__text--3">
-          <h2>Libre. Sans engagement.</h2>
-          <p>Vous restez parce que vous le voulez. Jamais par contrainte.</p>
+        <div class="promise__text promise__text--3">
+          <div class="promise__num">03</div>
+          <h2>Zéro engagement abusif.</h2>
+          <p>Maintenance et référencement existent en option — jamais en obligation. Vous souscrivez si vous en avez besoin, vous arrêtez quand vous voulez.</p>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="section features" id="features">
-      <p class="eyebrow center reveal">Pourquoi SKJ</p>
-      <h2 class="section__title reveal">Tout, sans la complexité.</h2>
-      <div class="features__grid">
-        <article class="card reveal">
-          <div class="card__icon">∞</div>
-          <h3>Sans engagement</h3>
-          <p>Aucune durée imposée. Vous partez quand vous voulez, sans frais cachés.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⚡</div>
-          <h3>Mise en place rapide</h3>
-          <p>Votre projet en ligne en quelques jours, pas en quelques mois.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">✦</div>
-          <h3>Design premium</h3>
-          <p>Une esthétique soignée, inspirée des plus grandes marques.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">⟳</div>
-          <h3>Évolutif</h3>
-          <p>Votre offre grandit avec vous, à votre rythme.</p>
-        </article>
+    <!-- COMPARATIF -->
+    <section class="section" id="comparatif">
+      <p class="eyebrow reveal">Pourquoi un prix fixe ?</p>
+      <h2 class="section__title reveal">Deux modèles. Des réalités très différentes.</h2>
+      <p class="section__sub reveal">Il n'y a pas de mauvais modèle en soi — mais il y a des réalités que vous devez connaître avant de choisir.</p>
+      <div class="compare-wrap reveal">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th class="them">Plateforme à abonnement</th>
+              <th class="us">SKJ Community — Prix fixe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Coût sur 3 ans</td>
+              <td class="them"><span class="tag tag-bad">Variable</span>1 500 € à 3 500 €+ selon les options — le compteur tourne</td>
+              <td class="us"><span class="tag tag-ok">Fixe</span>Tarif unique annoncé avant la signature, en 1 ou plusieurs fois</td>
+            </tr>
+            <tr>
+              <td>Propriété du site</td>
+              <td class="them"><span class="tag tag-bad">Non</span>Hébergé sur la plateforme. Quitter = tout recommencer</td>
+              <td class="us"><span class="tag tag-ok">Oui</span>Le site est à vous. Vous partez avec tout</td>
+            </tr>
+            <tr>
+              <td>Nom de domaine</td>
+              <td class="them"><span class="tag tag-bad">Risqué</span>Souvent géré par la plateforme — difficile à récupérer</td>
+              <td class="us"><span class="tag tag-ok">À votre nom</span>Enregistré à votre nom dès le début — à vie</td>
+            </tr>
+            <tr>
+              <td>Engagement</td>
+              <td class="them"><span class="tag tag-bad">Long</span>Contrats 12 à 24 mois, reconduction tacite difficile à arrêter</td>
+              <td class="us"><span class="tag tag-ok">Aucun imposé</span>Options mensuelles résiliables librement</td>
+            </tr>
+            <tr>
+              <td>Contenu</td>
+              <td class="them"><span class="tag tag-bad">Standardisé</span>Textes souvent générés, identiques d'un client à l'autre</td>
+              <td class="us"><span class="tag tag-ok">Personnalisé</span>Rédigé à partir de votre activité, relu par un humain</td>
+            </tr>
+            <tr>
+              <td>Interlocuteur</td>
+              <td class="them"><span class="tag tag-bad">Rare</span>Support automatisé, ticket, chatbot ou FAQ</td>
+              <td class="us"><span class="tag tag-ok">Direct</span>Un contact humain joignable tout au long du projet</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <!-- OFFRES -->
-    <section class="section offers" id="offres">
-      <p class="eyebrow center reveal">Nos formules</p>
-      <h2 class="section__title reveal">Choisissez. Changez. Arrêtez quand vous voulez.</h2>
-
-      <div class="offers__grid">
+    <section class="section" id="offres">
+      <p class="eyebrow center reveal">Nos offres</p>
+      <h2 class="section__title center reveal">Un prix annoncé. Toujours avant de signer.</h2>
+      <p class="section__sub center reveal">Tarifs indicatifs — chaque projet est devisé selon votre activité et vos besoins. Mais la règle ne change jamais : vous connaissez le montant avant de vous engager.</p>
+      <div class="plans">
         <article class="plan reveal">
-          <h3 class="plan__name">Essentiel</h3>
-          <p class="plan__price">0€<span>/ découverte</span></p>
+          <div class="plan__price"><small>à partir de</small>690&nbsp;€</div>
+          <div class="plan__priceSub">−20% au comptant (552 €) · ou 3× sans frais</div>
+          <h3 class="plan__name">Vitrine Essentielle</h3>
+          <p class="plan__desc">Pour les indépendants et artisans qui veulent une présence en ligne claire, pro et rapide à mettre en place.</p>
           <ul class="plan__list">
-            <li>Audit gratuit de votre projet</li>
-            <li>Recommandations personnalisées</li>
-            <li>Sans aucun engagement</li>
+            <li>Jusqu'à 5 pages</li>
+            <li>Design personnalisé à votre activité</li>
+            <li>Textes rédigés et relus humainement</li>
+            <li>Optimisation mobile et vitesse</li>
+            <li>Bases SEO intégrées</li>
+            <li>Nom de domaine à votre nom</li>
+            <li>Accès administrateur complet</li>
           </ul>
-          <a href="#contact" class="btn btn--ghost full">Commencer</a>
+          <a href="#contact" class="btn btn--ghost full">Demander un devis</a>
         </article>
 
         <article class="plan plan--featured reveal">
-          <div class="plan__badge">Populaire</div>
-          <h3 class="plan__name">Premium</h3>
-          <p class="plan__price">Sur mesure<span>/ flexible</span></p>
+          <div class="plan__badge">⭐ Le plus choisi</div>
+          <div class="plan__price"><small>à partir de</small>1290&nbsp;€</div>
+          <div class="plan__priceSub">−20% au comptant (1032 €) · ou 3× sans frais</div>
+          <h3 class="plan__name">Vitrine Professionnelle</h3>
+          <p class="plan__desc">Pour les commerçants et TPE qui veulent un site complet, optimisé pour le référencement local, conçu pour durer.</p>
           <ul class="plan__list">
-            <li>Landing page premium animée</li>
-            <li>Animations GSAP + 3D</li>
-            <li>Optimisation mobile</li>
-            <li>Résiliable à tout moment</li>
+            <li>Jusqu'à 10 pages</li>
+            <li>Design premium sur-mesure</li>
+            <li>SEO local intégré à la création</li>
+            <li>Formulaire de contact + Google Maps</li>
+            <li>Galerie photos / portfolio</li>
+            <li>Connexion Google Business Profile</li>
+            <li>3 mois de suivi inclus</li>
           </ul>
           <a href="#contact" class="btn btn--primary full">Demander un devis</a>
         </article>
 
         <article class="plan reveal">
-          <h3 class="plan__name">Signature</h3>
-          <p class="plan__price">Sur mesure<span>/ complet</span></p>
+          <div class="plan__price">Sur devis</div>
+          <div class="plan__priceSub">Projet spécifique — paiement adapté</div>
+          <h3 class="plan__name">Sur-Mesure PME</h3>
+          <p class="plan__desc">Pour les PME aux besoins spécifiques : multipage, catalogue, prise de rendez-vous, multilingue.</p>
           <ul class="plan__list">
-            <li>Site complet sur mesure</li>
-            <li>Expérience 3D immersive</li>
-            <li>Accompagnement dédié</li>
-            <li>Liberté totale, sans contrat</li>
+            <li>Pages illimitées selon besoin</li>
+            <li>Fonctionnalités métier intégrées</li>
+            <li>Stratégie SEO structurée</li>
+            <li>Blog / actualités configurable</li>
+            <li>Intégration outils tiers</li>
+            <li>Formation équipe incluse</li>
+            <li>Suivi post-livraison</li>
           </ul>
-          <a href="#contact" class="btn btn--ghost full">Nous contacter</a>
+          <a href="#contact" class="btn btn--ghost full">Discutons-en</a>
         </article>
+      </div>
+      <div class="note reveal">
+        <b>Deux façons de régler :</b> au comptant avec <b>−20% de remise</b>, ou en <b>3 fois sans frais</b>. Ces tarifs sont des points de départ indicatifs — chaque projet est devisé après un échange de 20 minutes. Le devis est gratuit, sans engagement, et remis par écrit avant toute signature. Vous ne signez que si le prix vous convient. Point.
       </div>
     </section>
 
-    <!-- CONTACT / CTA -->
-    <section class="section contact" id="contact">
-      <div class="contact__inner reveal">
-        <h2 class="section__title">Prêt à passer au niveau supérieur ?</h2>
-        <p class="contact__sub">Parlons de votre projet. Sans engagement, évidemment.</p>
-        <form class="contact__form" onsubmit="return false">
-          <input type="text" placeholder="Votre nom" required />
-          <input type="email" placeholder="Votre email" required />
-          <textarea placeholder="Votre projet en quelques mots..." rows="3"></textarea>
-          <button type="submit" class="btn btn--primary full">Envoyer ma demande</button>
+    <!-- MÉTHODE -->
+    <section class="section" id="methode">
+      <p class="eyebrow reveal">Notre méthode</p>
+      <h2 class="section__title reveal">Concret, clair, sans jargon.</h2>
+      <p class="section__sub reveal">De la première conversation à la livraison, chaque étape est expliquée, validée avec vous, et jalonnée. Pas d'improvisation, pas de surprise.</p>
+      <div class="steps">
+        <div class="step reveal"><div class="step__num">01</div><div><h3>L'échange de départ — gratuit (20 min)</h3><p>On discute de votre activité, vos objectifs, votre clientèle. On vous pose les bonnes questions et on répond honnêtement. Pas de pression.</p></div></div>
+        <div class="step reveal"><div class="step__num">02</div><div><h3>Le devis — par écrit, avant toute signature</h3><p>Prix fixe, contenu inclus, délais, conditions claires. Vous prenez le temps de lire, comparer, décider. On ne relance pas de façon insistante.</p></div></div>
+        <div class="step reveal"><div class="step__num">03</div><div><h3>La collecte de contenu — on vous guide</h3><p>Un questionnaire simple pour recueillir vos infos, textes et photos. Pas de photos pro ni de textes prêts ? On s'adapte et on propose des alternatives.</p></div></div>
+        <div class="step reveal"><div class="step__num">04</div><div><h3>La production — IA + expertise humaine</h3><p>L'IA accélère la production et réduit nos coûts (répercutés sur votre tarif). Mais chaque texte est relu, corrigé et validé par un pro de votre secteur.</p></div></div>
+        <div class="step reveal"><div class="step__num">05</div><div><h3>La validation — vous avez le dernier mot</h3><p>Vous visualisez le site en version préliminaire et demandez vos ajustements. On ne met en ligne que quand vous dites oui.</p></div></div>
+        <div class="step reveal"><div class="step__num">06</div><div><h3>La livraison — vous repartez avec tout</h3><p>Site en ligne, accès remis, formation, guide de maintenance. Domaine à votre nom, hébergement sous votre contrôle. Vous êtes autonome.</p></div></div>
+      </div>
+    </section>
+
+    <!-- PREUVES -->
+    <section class="section" id="avis">
+      <p class="eyebrow reveal">Ils nous ont fait confiance</p>
+      <h2 class="section__title reveal">Des sites livrés. Des clients autonomes.</h2>
+      <p class="section__sub reveal">Pas de promesses abstraites — voici ce que disent des artisans et commerçants accompagnés par SKJ Community.</p>
+      <div class="metrics reveal">
+        <div class="metric"><b>17+</b><span>Sites livrés</span></div>
+        <div class="metric"><b>100%</b><span>Prix fixe respecté</span></div>
+        <div class="metric"><b>1–4 sem</b><span>Délai moyen</span></div>
+      </div>
+      <div class="quotes">
+        <article class="quote reveal"><div class="quote__mark">"</div><p>Un prix clair, on a signé, et deux semaines plus tard mon site était en ligne. J'ai toutes mes clés, je peux modifier moi-même.</p><h4>Marc D.</h4><span>Plombier-chauffagiste</span></article>
+        <article class="quote reveal"><div class="quote__mark">"</div><p>Ils ont vraiment écrit le contenu en fonction de mon activité — pas du texte bateau. Mes clients trouvent le site « pro et rassurant ».</p><h4>Samira A.</h4><span>Esthéticienne indépendante</span></article>
+        <article class="quote reveal"><div class="quote__mark">"</div><p>J'avais un abonnement depuis 3 ans, plus de 2 000 € payés, et tout perdu en partant. Avec SKJ, j'ai payé une fois, le site est à moi.</p><h4>Thierry M.</h4><span>Menuisier</span></article>
+        <article class="quote reveal"><div class="quote__mark">"</div><p>Je ne suis pas à l'aise avec l'informatique. Ils ont pris le temps de tout m'expliquer avec un guide simple. Je n'aurais pas cru ça possible.</p><h4>Véronique L.</h4><span>Boulangerie artisanale</span></article>
+      </div>
+    </section>
+
+    <!-- AUDIT -->
+    <section class="section" id="audit">
+      <div class="audit reveal">
+        <div class="audit__text">
+          <h2>Votre site actuel vous <span class="grad">rapporte-t-il vraiment ?</span></h2>
+          <p>On analyse votre site existant (ou votre présence en ligne) gratuitement et sans engagement. En 48h, vous recevez un rapport clair : ce qui fonctionne, ce qui freine vos visiteurs, ce qui peut être amélioré. Sans jargon, sans discours de vente caché.</p>
+          <ul class="audit__list">
+            <li>Analyse de la vitesse et de l'expérience mobile</li>
+            <li>Vérification des bases SEO locales</li>
+            <li>Lisibilité du message et des appels à l'action</li>
+            <li>Propriété du nom de domaine et des accès</li>
+          </ul>
+        </div>
+        <div class="audit__action">
+          <a href="#contact" class="btn btn--primary">Recevoir mon audit gratuit →</a>
+          <div class="audit__note">Gratuit · Sans engagement · Réponse sous 48h</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <p class="eyebrow center reveal">Questions fréquentes</p>
+      <h2 class="section__title center reveal">On répond franchement.</h2>
+      <div class="faq" style="margin-top:40px">
+        <div class="faq-item reveal"><div class="faq-q">Est-ce que mon site m'appartient vraiment après livraison ?</div><div class="faq-a">Oui, entièrement. Votre nom de domaine est enregistré à votre nom, vos fichiers vous sont remis, vos accès administrateur vous appartiennent. Si demain vous confiez votre site à un autre professionnel, vous partez avec tout — sans recommencer de zéro.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Pourquoi utiliser l'IA ? Mon contenu sera-t-il générique ?</div><div class="faq-a">On utilise l'IA pour accélérer certaines étapes — ce qui réduit nos coûts, donc les vôtres. Mais tout est ensuite relu, restructuré et personnalisé par un professionnel qui comprend votre activité. Votre site est construit à partir de votre métier, vos clients, votre façon de travailler.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Mon site sera-t-il bien référencé sur Google ?</div><div class="faq-a">On intègre les bases du référencement dans chaque site : structure technique, balises optimisées, vitesse, version mobile, indexation. Pour un SEO local renforcé, une option mensuelle existe. Ce qu'on ne promet pas : une position garantie — personne ne peut légitimement le faire.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Combien de temps pour avoir mon site en ligne ?</div><div class="faq-a">En général entre 2 et 4 semaines selon la complexité et la rapidité à laquelle vous transmettez vos contenus. Le calendrier est fixé dès le devis, et vous êtes informé à chaque étape.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Et si je ne suis pas satisfait du résultat ?</div><div class="faq-a">Avant la mise en ligne, vous validez le site. Les ajustements prévus au devis sont faits. On ne met rien en ligne sans votre accord. Tout est écrit noir sur blanc dans le contrat de prestation.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Dois-je payer en une seule fois ?</div><div class="faq-a">Non. Selon l'offre, le paiement est possible en 3 ou 6 mensualités sans frais. Les modalités figurent dans votre devis. L'objectif : que le budget ne soit pas un obstacle si le projet est juste pour vous.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Et les mises à jour après la livraison ?</div><div class="faq-a">Trois options : vous les faites vous-même (on vous forme), vous nous contactez à la carte, ou vous souscrivez une maintenance mensuelle — sans engagement forcé, résiliable à tout moment.</div></div>
+        <div class="faq-item reveal"><div class="faq-q">Je n'ai ni textes ni photos. Vous pouvez m'aider ?</div><div class="faq-a">Oui. On vous envoie un questionnaire simple et on rédige les textes à partir de vos réponses. Pour les photos, on peut utiliser des images pro libres de droits en attendant, ou vous orienter vers un photographe.</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="contact-grid">
+        <div class="reveal">
+          <p class="eyebrow">Parlons de votre projet</p>
+          <h2 class="section__title" style="margin-bottom:14px">Dites-nous où vous en êtes. On prend le relais.</h2>
+          <p class="section__sub" style="margin-bottom:0">Projet précis ou simple exploration ? Remplissez le formulaire. On vous répond sous 24h ouvrées — pas un chatbot, une vraie personne — pour un échange de 20 min, gratuit et sans engagement.</p>
+          <ul class="contact__list">
+            <li>Réponse humaine sous 24h ouvrées</li>
+            <li>Échange de 20 min pour comprendre votre projet</li>
+            <li>Devis écrit gratuit à l'issue de l'échange</li>
+            <li>Aucune pression, aucune relance insistante</li>
+          </ul>
+        </div>
+        <form class="form reveal" onsubmit="return false">
+          <h3>Demandez votre devis ou audit gratuit</h3>
+          <p>On vous revient sous 24h ouvrées.</p>
+          <div class="form-row">
+            <div class="field"><label>Prénom *</label><input type="text" placeholder="Jean" required /></div>
+            <div class="field"><label>Nom *</label><input type="text" placeholder="Dupont" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Téléphone *</label><input type="tel" placeholder="06 xx xx xx xx" required /></div>
+            <div class="field"><label>Email *</label><input type="email" placeholder="jean@monentreprise.fr" required /></div>
+          </div>
+          <div class="field">
+            <label>Votre activité *</label>
+            <select required>
+              <option>Artisan / Métier du bâtiment</option>
+              <option>Commerçant / Boutique</option>
+              <option>Professionnel de santé / Bien-être</option>
+              <option>Restauration / Alimentaire</option>
+              <option>Indépendant / Prestataire de service</option>
+              <option>TPE / PME</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Vous avez déjà un site ?</label>
+            <select>
+              <option>Non, je pars de zéro</option>
+              <option>Oui, je veux le refondre</option>
+              <option>Oui, je veux un audit gratuit</option>
+            </select>
+          </div>
+          <div class="field"><label>Votre projet en quelques mots</label><textarea placeholder="Dites-nous ce que vous cherchez, même vaguement. On s'adapte."></textarea></div>
+          <button type="submit" class="btn btn--primary full">Envoyer ma demande →</button>
+          <div class="form-note">Aucune relance abusive. Vos données ne sont jamais revendues — conformément au RGPD.</div>
         </form>
       </div>
     </section>
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2024 SKJ Community — Conçu sans compromis.</p>
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <h4>SKJ Community</h4>
+        <p>Studio digital pour artisans, commerçants et indépendants. Des sites à prix fixe, qui vous appartiennent vraiment.</p>
+        <div class="coord">
+          📍 Caen<br />
+          ✉ <a href="mailto:contact@skjcommunity.fr">contact@skjcommunity.fr</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#offres">Nos offres</a></li>
+          <li><a href="#methode">Notre méthode</a></li>
+          <li><a href="#avis">Avis clients</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Informations</h5>
+        <ul>
+          <li><a href="#audit">Audit gratuit</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">CGV / CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__copy">
+      <span>© 2024 SKJ Community — SIRET 518&nbsp;002&nbsp;969&nbsp;00021 · RCS Caen · Micro-entreprise · TVA non applicable, art. 293 B du CGI</span>
+      <span>Studio indépendant · Fait en France 🇫🇷</span>
+    </div>
   </footer>
 
   <!-- Librairies via CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <script>
-  /* =========================================================
-     SKJ Community — Three.js + GSAP ScrollTrigger
-     ========================================================= */
-  gsap.registerPlugin(ScrollTrigger);
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  <!-- Three.js en modules (pour reflets d'environnement) -->
+  <script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
 
-  /* 1. SCÈNE THREE.JS */
+  <script type="module">
+  import * as THREE from "three";
+  import { RoomEnvironment } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/environments/RoomEnvironment.js";
+
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const canvas = document.getElementById("webgl");
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.18;
+
   const scene = new THREE.Scene();
-  const sizes = { width: window.innerWidth, height: window.innerHeight };
-  const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100);
-  camera.position.set(0, 0, 6);
-  scene.add(camera);
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setSize(sizes.width, sizes.height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const camera = new THREE.PerspectiveCamera(38, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0.25, 7);
+
+  // Reflets d'environnement réalistes (sur l'aluminium / le verre)
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
   const productGroup = new THREE.Group();
   scene.add(productGroup);
-  const geometry = new THREE.IcosahedronGeometry(1.4, 1);
+  const laptop = new THREE.Group();
+  productGroup.add(laptop);
 
-  const coreMat = new THREE.MeshStandardMaterial({ color: 0x1a1a2e, metalness: 0.9, roughness: 0.15, flatShading: true });
-  const core = new THREE.Mesh(geometry, coreMat);
-  productGroup.add(core);
+  /* --- Textures canvas (écran + logo capot) --- */
+  function roundRectPath(c, X, Y, w, h, r) { c.beginPath(); c.moveTo(X + r, Y); c.arcTo(X + w, Y, X + w, Y + h, r); c.arcTo(X + w, Y + h, X, Y + h, r); c.arcTo(X, Y + h, X, Y, r); c.arcTo(X, Y, X + w, Y, r); c.closePath(); }
+  function makeScreenTexture() {
+    const c = document.createElement("canvas"); c.width = 1024; c.height = 640;
+    const x = c.getContext("2d");
+    const g = x.createLinearGradient(0, 0, 0, 640); g.addColorStop(0, "#0a1119"); g.addColorStop(1, "#05070a");
+    x.fillStyle = g; x.fillRect(0, 0, 1024, 640);
+    const rg = x.createRadialGradient(512, 70, 30, 512, 70, 560); rg.addColorStop(0, "rgba(120,188,255,0.22)"); rg.addColorStop(1, "rgba(120,188,255,0)");
+    x.fillStyle = rg; x.fillRect(0, 0, 1024, 640);
+    x.textAlign = "center";
+    x.fillStyle = "#91d8ff"; x.font = "700 24px Inter, sans-serif"; x.fillText("S K J   C O M M U N I T Y", 512, 150);
+    x.fillStyle = "#f6f7f8"; x.font = "800 90px Inter, sans-serif"; x.fillText("Des offres premium.", 512, 295);
+    x.fillStyle = "#bfe4ff"; x.fillText("Zéro engagement.", 512, 388);
+    x.fillStyle = "#cfeaff"; roundRectPath(x, 372, 450, 280, 66, 33); x.fill();
+    x.fillStyle = "#07090c"; x.font = "700 28px Inter, sans-serif"; x.fillText("Devis gratuit", 512, 492);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+  }
+  function makeLogoTexture() {
+    const c = document.createElement("canvas"); c.width = 512; c.height = 512;
+    const x = c.getContext("2d"); x.translate(256, 256);
+    x.textAlign = "center"; x.textBaseline = "middle";
+    function draw(blur) {
+      x.shadowColor = "rgba(150,212,255,1)"; x.shadowBlur = blur;
+      x.strokeStyle = "#ffffff"; x.lineWidth = 20; x.lineJoin = "round";
+      x.beginPath();
+      for (let i = 0; i < 6; i++) { const a = Math.PI / 6 + i * Math.PI / 3, px = Math.cos(a) * 150, py = Math.sin(a) * 150; i ? x.lineTo(px, py) : x.moveTo(px, py); }
+      x.closePath(); x.stroke();
+      x.fillStyle = "#ffffff"; x.font = "900 140px Inter, Arial, sans-serif";
+      x.fillText("SKJ", 0, 6);
+    }
+    draw(54); draw(18); draw(0);
+    const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+  }
 
-  const wireMat = new THREE.MeshBasicMaterial({ color: 0x2ea7ff, wireframe: true, transparent: true, opacity: 0.45 });
-  const wire = new THREE.Mesh(geometry.clone(), wireMat);
-  wire.scale.setScalar(1.02);
-  productGroup.add(wire);
+  /* --- Matériaux --- */
+  const aluminium = new THREE.MeshStandardMaterial({ color: 0xced3d9, metalness: 1.0, roughness: 0.28, envMapIntensity: 1.5 });
+  const aluminiumPad = new THREE.MeshStandardMaterial({ color: 0xc2c7ce, metalness: 0.9, roughness: 0.22, envMapIntensity: 1.3 });
+  const glassMat = new THREE.MeshPhysicalMaterial({ color: 0x04060a, metalness: 0.1, roughness: 0.07, clearcoat: 1, clearcoatRoughness: 0.04, envMapIntensity: 1.3 });
+  const keyMat = new THREE.MeshStandardMaterial({ color: 0x14171c, metalness: 0.5, roughness: 0.55, envMapIntensity: 0.6 });
+  const deckMat = new THREE.MeshStandardMaterial({ color: 0x0e1116, metalness: 0.6, roughness: 0.5, envMapIntensity: 0.7 });
 
-  const glowGeo = new THREE.IcosahedronGeometry(1.9, 1);
-  const glowMat = new THREE.MeshBasicMaterial({ color: 0xff7a18, wireframe: true, transparent: true, opacity: 0.14 });
-  const glow = new THREE.Mesh(glowGeo, glowMat);
-  productGroup.add(glow);
+  function roundedPlate(w, h, r, depth) {
+    const x = -w / 2, y = -h / 2;
+    const s = new THREE.Shape();
+    s.moveTo(x + r, y);
+    s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+    s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+    s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y);
+    const g = new THREE.ExtrudeGeometry(s, { depth, bevelEnabled: true, bevelThickness: depth * 0.3, bevelSize: 0.03, bevelSegments: 6, curveSegments: 18 });
+    g.center(); return g;
+  }
 
-  const particlesCount = 700;
-  const positions = new Float32Array(particlesCount * 3);
-  for (let i = 0; i < particlesCount * 3; i++) positions[i] = (Math.random() - 0.5) * 22;
-  const particlesGeo = new THREE.BufferGeometry();
-  particlesGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-  const particlesMat = new THREE.PointsMaterial({ size: 0.025, color: 0xe7b3ff, transparent: true, opacity: 0.6 });
-  const particles = new THREE.Points(particlesGeo, particlesMat);
-  scene.add(particles);
+  /* --- Châssis (base + clavier + trackpad) --- */
+  const base = new THREE.Mesh(roundedPlate(3.4, 2.34, 0.18, 0.12), aluminium);
+  base.rotation.x = -Math.PI / 2; laptop.add(base);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.4));
-  const keyLight = new THREE.PointLight(0x2ea7ff, 65, 20); keyLight.position.set(4, 4, 5); scene.add(keyLight);
-  const rimLight = new THREE.PointLight(0xff7a18, 60, 20); rimLight.position.set(-5, -2, 3); scene.add(rimLight);
-  const fillLight = new THREE.PointLight(0x6a3cff, 35, 20); fillLight.position.set(0, -4, -3); scene.add(fillLight);
+  const deck = new THREE.Mesh(roundedPlate(2.96, 1.34, 0.06, 0.02), deckMat);
+  deck.rotation.x = -Math.PI / 2; deck.position.set(0, 0.066, -0.3); laptop.add(deck);
 
+  const keyGeo = new THREE.BoxGeometry(0.17, 0.03, 0.16);
+  for (let r = 0; r < 5; r++) for (let cc = 0; cc < 14; cc++) {
+    const k = new THREE.Mesh(keyGeo, keyMat);
+    k.position.set(-1.16 + cc * 0.178, 0.083, -0.82 + r * 0.2);
+    laptop.add(k);
+  }
+
+  const pad = new THREE.Mesh(roundedPlate(1.06, 0.7, 0.05, 0.012), aluminiumPad);
+  pad.rotation.x = -Math.PI / 2; pad.position.set(0, 0.07, 0.74); laptop.add(pad);
+
+  /* --- Écran (capot pivotant) --- */
+  const lid = new THREE.Group();
+  lid.position.set(0, 0.04, -1.1);
+  lid.rotation.x = -0.38;                 // ouverture ~102°
+  laptop.add(lid);
+
+  const lidBody = new THREE.Mesh(roundedPlate(3.4, 2.22, 0.16, 0.06), aluminium);
+  lidBody.position.y = 1.16; lid.add(lidBody);
+
+  const glass = new THREE.Mesh(roundedPlate(3.06, 1.92, 0.06, 0.012), glassMat);
+  glass.position.set(0, 1.16, 0.038); lid.add(glass);
+
+  const display = new THREE.Mesh(new THREE.PlaneGeometry(2.96, 1.84), new THREE.MeshBasicMaterial({ map: makeScreenTexture(), toneMapped: false }));
+  display.position.set(0, 1.16, 0.045); lid.add(display);
+
+  // Logo SKJ lumineux sur le capot (face arrière)
+  const logo = new THREE.Mesh(new THREE.PlaneGeometry(1.12, 1.12), new THREE.MeshBasicMaterial({ map: makeLogoTexture(), transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+  logo.position.set(0, 1.16, -0.08); logo.rotation.y = Math.PI; logo.renderOrder = 5; lid.add(logo);
+
+  laptop.rotation.set(-0.08, Math.PI - 0.22, 0);   // capot 3/4 face caméra → logo SKJ visible
+  laptop.position.y = -0.2;
+
+  /* --- Lumières d'appoint (l'environnement fait l'essentiel) --- */
+  scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.8); keyLight.position.set(-3, 5, 5); scene.add(keyLight);
+  const topLight = new THREE.DirectionalLight(0xffffff, 1.6); topLight.position.set(0, 6, 1); scene.add(topLight);
+  const rimLight = new THREE.DirectionalLight(0x9bdcff, 2.6); rimLight.position.set(5, 1.5, -1); scene.add(rimLight);
+  const frontFill = new THREE.DirectionalLight(0xcfe8ff, 2.0); frontFill.position.set(0, 2.5, 8); scene.add(frontFill);
+
+  /* --- Parallaxe souris + boucle --- */
   const mouse = { x: 0, y: 0 };
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = (e.clientX / sizes.width - 0.5);
-    mouse.y = (e.clientY / sizes.height - 0.5);
-  });
+  window.addEventListener("mousemove", (e) => { mouse.x = e.clientX / window.innerWidth - 0.5; mouse.y = e.clientY / window.innerHeight - 0.5; });
 
   const clock = new THREE.Clock();
   function tick() {
     const t = clock.getElapsedTime();
     if (!prefersReduced) {
-      productGroup.rotation.y = t * 0.18;
-      productGroup.rotation.x = Math.sin(t * 0.4) * 0.12;
-      glow.rotation.y = -t * 0.1;
-      particles.rotation.y = t * 0.02;
-      camera.position.x += (mouse.x * 0.6 - camera.position.x) * 0.04;
-      camera.position.y += (-mouse.y * 0.6 - camera.position.y) * 0.04;
-      camera.lookAt(scene.position);
+      productGroup.rotation.y = Math.sin(t * 0.3) * 0.06;
+      productGroup.rotation.x = Math.sin(t * 0.45) * 0.025;
+      camera.position.x += (mouse.x * 0.7 - camera.position.x) * 0.04;
+      camera.position.y += (0.25 - mouse.y * 0.5 - camera.position.y) * 0.04;
+      camera.lookAt(0, 0, 0);
     }
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
@@ -761,67 +786,50 @@
   tick();
 
   window.addEventListener("resize", () => {
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
-    camera.aspect = sizes.width / sizes.height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(sizes.width, sizes.height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight); renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
   });
 
-  /* 2. GSAP SCROLLTRIGGER — zoom progressif */
-  gsap.set(productGroup.position, { x: 1.6, y: 0, z: 0 });
-  gsap.set(productGroup.scale, { x: 0.85, y: 0.85, z: 0.85 });
+  /* --- GSAP : placement + le capot pivote vers l'écran + zoom --- */
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.set(productGroup.position, { x: 0, y: -0.1, z: 0 });
+  gsap.set(productGroup.scale, { x: 0.62, y: 0.62, z: 0.62 });
 
   if (!prefersReduced) {
-    gsap.timeline({
-      scrollTrigger: { trigger: "#produit", start: "top top", end: "bottom bottom", scrub: 1 },
-    })
-      .to(productGroup.position, { x: 0, y: 0, z: 2.2, ease: "power1.inOut" }, 0)
-      .to(productGroup.scale, { x: 1.15, y: 1.15, z: 1.15, ease: "power1.inOut" }, 0)
-      .to(productGroup.position, { z: 3.6, ease: "power1.inOut" }, 0.5)
-      .to(camera.position, { z: 5, ease: "power1.inOut" }, 0.5)
-      .to(productGroup.position, { x: 0, z: 1, ease: "power1.inOut" }, 0.8)
-      .to(productGroup.scale, { x: 1, y: 1, z: 1, ease: "power1.inOut" }, 0.8);
+    // Zoom doux pendant la section Promesse (caméra + échelle, sans repositionnement)
+    gsap.timeline({ scrollTrigger: { trigger: "#promesse", start: "top top", end: "bottom bottom", scrub: 1 } })
+      .to(productGroup.scale, { x: 0.8, y: 0.8, z: 0.8, ease: "power1.inOut" }, 0)
+      .to(camera.position, { z: 6.1, ease: "power1.inOut" }, 0)
+      .to(laptop.rotation, { y: Math.PI + 0.18, ease: "sine.inOut" }, 0);
 
-    gsap.utils.toArray(".product__text").forEach((el, i) => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: "#produit",
-          start: () => `top+=${i * 33}% top`,
-          end: () => `top+=${(i + 1) * 33}% top`,
-          scrub: true,
-        },
-      })
+    gsap.utils.toArray(".promise__text").forEach((el, i) => {
+      gsap.timeline({ scrollTrigger: { trigger: "#promesse", start: () => `top+=${i * 33}% top`, end: () => `top+=${(i + 1) * 33}% top`, scrub: true } })
         .fromTo(el, { opacity: 0, y: 40 }, { opacity: 1, y: 0, ease: "power2.out" })
         .to(el, { opacity: 0, y: -40, ease: "power2.in" });
     });
 
-    gsap.to(productGroup.position, {
-      x: -2,
-      scrollTrigger: { trigger: "#features", start: "top bottom", end: "top top", scrub: 1 },
-    });
-    gsap.to(canvas, {
-      opacity: 0.45,
-      scrollTrigger: { trigger: "#features", start: "top center", end: "top top", scrub: true },
-    });
-    gsap.to(canvas, {
-      opacity: 1,
-      scrollTrigger: { trigger: "#contact", start: "top center", end: "bottom bottom", scrub: true },
-    });
+    gsap.to(canvas, { opacity: 0.16, scrollTrigger: { trigger: "#comparatif", start: "top bottom", end: "top center", scrub: true } });
   }
+  </script>
 
-  /* 3. REVEAL + nav + loader */
+  <script>
+  /* --- Interface : reveal, nav, FAQ, loader, smooth-scroll --- */
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) { entry.target.classList.add("visible"); io.unobserve(entry.target); }
-    });
-  }, { threshold: 0.15 });
+    entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("visible"); io.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
   const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 80);
+  window.addEventListener("scroll", () => { nav.classList.toggle("scrolled", window.scrollY > 80); });
+
+  document.querySelectorAll(".faq-q").forEach((q) => {
+    q.addEventListener("click", () => {
+      const item = q.parentElement;
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
+      if (!open) item.classList.add("open");
+    });
   });
 
   const loader = document.getElementById("loader");
@@ -829,21 +837,14 @@
   let progress = 0;
   const fakeLoad = setInterval(() => {
     progress += Math.random() * 18;
-    if (progress >= 100) {
-      progress = 100;
-      clearInterval(fakeLoad);
-      setTimeout(() => { loader.classList.add("hidden"); ScrollTrigger.refresh(); }, 350);
-    }
+    if (progress >= 100) { progress = 100; clearInterval(fakeLoad); setTimeout(() => { loader.classList.add("hidden"); if (window.ScrollTrigger) ScrollTrigger.refresh(); }, 350); }
     loaderBar.style.width = progress + "%";
   }, 140);
 
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
     a.addEventListener("click", (e) => {
       const id = a.getAttribute("href");
-      if (id.length > 1) {
-        const target = document.querySelector(id);
-        if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 60, behavior: "smooth" }); }
-      }
+      if (id.length > 1) { const target = document.querySelector(id); if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 60, behavior: "smooth" }); } }
     });
   });
   </script>
