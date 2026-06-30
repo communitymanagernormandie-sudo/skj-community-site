@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Merci pour votre demande | SKJ Community</title>
+  <style>
+    :root{ --bg:#ffffff; --bg-soft:#f6f5fc; --ink:#121319; --text-dim:#5f626e; --accent:#7b5cff;
+      --grad:linear-gradient(135deg,#9b86ff 0%,#7b5cff 100%); --border:rgba(18,19,25,.10);
+      --shadow:0 18px 50px rgba(20,21,45,.12); --radius:18px; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg-soft); color:var(--ink); min-height:100vh; display:flex; align-items:center;
+      justify-content:center; padding:24px; line-height:1.55; }
+    .card{ background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); max-width:560px; width:100%; padding:48px 40px; text-align:center; }
+    .check{ width:72px; height:72px; border-radius:50%; background:var(--grad); margin:0 auto 24px;
+      display:flex; align-items:center; justify-content:center; box-shadow:0 12px 30px rgba(123,92,255,.4); }
+    .check svg{ width:38px; height:38px; stroke:#fff; stroke-width:3; fill:none;
+      stroke-linecap:round; stroke-linejoin:round; }
+    h1{ font-size:1.6rem; font-weight:800; margin-bottom:12px; letter-spacing:-.01em; }
+    p{ color:var(--text-dim); font-size:1.02rem; margin-bottom:10px; }
+    .badge{ display:inline-block; background:var(--bg-soft); border:1px solid var(--border);
+      border-radius:999px; padding:8px 18px; font-size:.9rem; font-weight:600; color:var(--ink); margin-top:8px; }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:15px 30px;
+      border-radius:999px; font-size:1rem; font-weight:700; cursor:pointer; border:1px solid transparent;
+      text-decoration:none; transition:transform .25s ease,box-shadow .3s ease; margin-top:24px; }
+    .btn--primary{ background:var(--grad); color:#fff; box-shadow:0 14px 34px rgba(123,92,255,.36); }
+    .btn--primary:hover{ transform:translateY(-3px); box-shadow:0 18px 42px rgba(123,92,255,.5); }
+    .links{ margin-top:26px; padding-top:22px; border-top:1px solid var(--border); }
+    .links a{ color:var(--accent); text-decoration:none; font-weight:600; font-size:.95rem; }
+    .links a:hover{ text-decoration:underline; }
+    .brand{ margin-top:30px; font-size:.78rem; letter-spacing:.04em; color:var(--text-dim); text-transform:uppercase; font-weight:700; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>
+    </div>
+    <h1>Merci, c'est bien reçu&nbsp;!</h1>
+    <p>Votre demande nous est parvenue. Une vraie personne vous recontacte&nbsp;:</p>
+    <span class="badge">⏱ sous 24h ouvrées</span>
+    <p style="margin-top:16px">Pas un chatbot, pas de pression&nbsp;— juste un échange de 20&nbsp;min pour comprendre votre projet et vous proposer un devis gratuit.</p>
+
+    <a class="btn btn--primary" href="https://wa.me/33782282408?text=Bonjour%20SKJ%20Community%2C%20je%20viens%20de%20remplir%20le%20formulaire%20sur%20votre%20site">💬 Discuter tout de suite sur WhatsApp</a>
+
+    <div class="links">
+      <a href="/">← Retour au site</a>
+    </div>
+    <p class="brand">SKJ Community · Caen &amp; Normandie</p>
+  </main>
+</body>
+</html>
