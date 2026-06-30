@@ -713,7 +713,11 @@
             <h2>Recevez gratuitement notre guide PDF</h2>
             <p>7 erreurs qui empêchent votre site internet d'attirer des clients — et comment les corriger.</p>
           </div>
-          <form class="lead__form" onsubmit="return false">
+          <form class="lead__form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="5eb28674-c7ab-4193-bfee-bc2462ae619c" />
+            <input type="hidden" name="subject" value="Nouveau lead — Guide PDF SKJ Community" />
+            <input type="hidden" name="from_name" value="Site SKJ Community" />
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" />
             <div class="lead__row">
               <input type="email" name="email" placeholder="Votre adresse email" aria-label="Votre adresse email" required />
               <button type="submit" class="btn btn--primary">Recevoir le guide</button>
@@ -757,14 +761,18 @@
               <li>Aucune pression, aucune relance insistante</li>
             </ul>
           </div>
-          <form class="form reveal" onsubmit="return false">
+          <form class="form reveal" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="5eb28674-c7ab-4193-bfee-bc2462ae619c" />
+            <input type="hidden" name="subject" value="Nouvelle demande d'audit — site SKJ Community" />
+            <input type="hidden" name="from_name" value="Site SKJ Community" />
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" />
             <h3>Recevez votre audit gratuit</h3>
             <p>3 champs suffisent. On vous rappelle sous 24h ouvrées.</p>
-            <div class="field"><label>Prénom *</label><input type="text" placeholder="Jean" required /></div>
-            <div class="field"><label>Téléphone *</label><input type="tel" placeholder="06 xx xx xx xx" required /></div>
+            <div class="field"><label>Prénom *</label><input type="text" name="Prénom" placeholder="Jean" required /></div>
+            <div class="field"><label>Téléphone *</label><input type="tel" name="Téléphone" placeholder="06 xx xx xx xx" required /></div>
             <div class="field">
               <label>Votre activité *</label>
-              <select required>
+              <select name="Activité" required>
                 <option>Artisan / Métier du bâtiment</option>
                 <option>Commerçant / Boutique</option>
                 <option>Professionnel de santé / Bien-être</option>
